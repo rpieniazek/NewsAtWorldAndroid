@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.common.base.Optional;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
@@ -61,7 +60,6 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
         Picasso.with(context)
                 .load(articleList.get(position).getImageUrl())
                 .into(imageViewHolder);
-
     }
 
     private void fillAddedDateField(ViewHolder holder, int position) {
@@ -74,8 +72,6 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
         }catch (NullPointerException exc){
             holder.articleDateAdded.setText(R.string.added_date_not_set);
         }
-
-
     }
 
     private void startDetailActivity(View v, ViewHolder holder) {

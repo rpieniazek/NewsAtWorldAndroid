@@ -11,7 +11,6 @@ import java.util.List;
 public class Article implements Serializable {
 
     private Long id;
-
     private String title;
     private String text;
     private String imageUrl;

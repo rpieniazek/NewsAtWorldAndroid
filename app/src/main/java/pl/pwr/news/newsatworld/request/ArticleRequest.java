@@ -1,11 +1,7 @@
 package pl.pwr.news.newsatworld.request;
 
-import java.util.List;
-
-import pl.pwr.news.newsatworld.model.Article;
 import pl.pwr.news.newsatworld.response.GetArticleResponse;
 import retrofit.Call;
-import retrofit.http.Field;
 import retrofit.http.GET;
 import retrofit.http.Query;
 

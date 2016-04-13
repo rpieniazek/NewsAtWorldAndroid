@@ -11,7 +11,6 @@ public class GetArticleResponse {
 
     public String result;
     public String message;
-
     public List<Article> value;
 
 

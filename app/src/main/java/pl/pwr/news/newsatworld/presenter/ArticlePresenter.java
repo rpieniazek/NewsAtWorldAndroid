@@ -1,12 +1,9 @@
 package pl.pwr.news.newsatworld.presenter;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
 
 import pl.pwr.news.newsatworld.model.Article;
 import pl.pwr.news.newsatworld.response.GetArticleResponse;

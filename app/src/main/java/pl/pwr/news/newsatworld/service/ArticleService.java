@@ -27,7 +27,6 @@ public class ArticleService {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://37.187.52.160:9000")
                 .addConverterFactory(GsonConverterFactory.create())
-
                 .build();
 
         request = retrofit.create(ArticleRequest.class);

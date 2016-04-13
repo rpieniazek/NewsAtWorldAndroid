@@ -6,6 +6,7 @@ import java.io.Serializable;
  * Created by Rafal Pieniążek on 2016-04-13.
  */
 public class Tag implements Serializable {
+
     private Long id;
     private String name;
 
