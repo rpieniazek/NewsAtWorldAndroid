@@ -2,6 +2,7 @@ package pl.pwr.news.newsatworld.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -15,7 +16,9 @@ public class Article implements Serializable {
     private String text;
     private String imageUrl;
     private String link;
-    private Date addedDate;
+    private Long addedDate;
+    private List<Tag> tags;
+    private Category category;
 
 
     public Long getId() {
@@ -59,10 +62,10 @@ public class Article implements Serializable {
     }
 
     public Date getAddedDate() {
-        return addedDate;
+        return new Date(addedDate);
     }
 
     public void setAddedDate(Date addedDate) {
-        this.addedDate = addedDate;
+        this.addedDate = addedDate.getTime();
     }
 }

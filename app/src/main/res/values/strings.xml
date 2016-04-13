@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">NewsAtWorld</string>
     <string name="title_article_detail">Article Detail</string>
+    <string name="added_date_not_set" >--</string>
 </resources>

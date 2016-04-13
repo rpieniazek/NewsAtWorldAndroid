@@ -1,45 +1,42 @@
 package pl.pwr.news.newsatworld;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.view.LayoutInflater;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-
-import pl.pwr.news.newsatworld.adapter.ArticleListAdapter;
-import pl.pwr.news.newsatworld.dummy.DummyContent;
-import pl.pwr.news.newsatworld.model.Article;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArticleListActivity extends AppCompatActivity {
+import pl.pwr.news.newsatworld.adapter.ArticleListAdapter;
+import pl.pwr.news.newsatworld.model.Article;
+import pl.pwr.news.newsatworld.presenter.ArticlePresenter;
+import pl.pwr.news.newsatworld.view.ArticleListView;
 
+public class ArticleListActivity extends AppCompatActivity implements ArticleListView {
+    ArticlePresenter presenter;
     private List<Article> articleList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
-
+        presenter = new ArticlePresenter(this);
+        presenter.getArticleList();
         setUpToolbar();
         setUpFloatingActionButton();
-        mockArticleData();
+    }
 
+    @Override
+    public void setArticleList(List<Article> articleList) {
+        this.articleList = articleList;
         View recyclerView = findViewById(R.id.article_list);
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
-
     }
 
     private void setUpFloatingActionButton() {
@@ -47,8 +44,7 @@ public class ArticleListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                presenter.getArticleList();
             }
         });
     }
@@ -59,25 +55,8 @@ public class ArticleListActivity extends AppCompatActivity {
         toolbar.setTitle(getTitle());
     }
 
-    private void mockArticleData() {
-        articleList = new ArrayList<>();
-        Article article = new Article();
-        article.setId(1L);
-        article.setTitle("Title1");
-        article.setText("LoremJEDENIpsumDolorem");
-
-        articleList.add(article);
-
-        article.setId(2L);
-        article.setTitle("Title2");
-        article.setText("LoremDWAIpsumDolorem");
-
-        articleList.add(article);
-    }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         recyclerView.setAdapter(new ArticleListAdapter(articleList));
     }
-
-
 }

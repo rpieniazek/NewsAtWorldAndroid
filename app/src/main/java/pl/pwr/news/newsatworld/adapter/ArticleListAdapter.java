@@ -6,8 +6,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.common.base.Optional;
+import com.squareup.picasso.Picasso;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import pl.pwr.news.newsatworld.ArticleDetailActivity;
@@ -36,8 +42,9 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.article = articleList.get(position);
-        holder.title.setText(articleList.get(position).getTitle());
-
+        holder.articleTitle.setText(articleList.get(position).getTitle());
+        fillAddedDateField(holder, position);
+        fillArticleThumbnail(holder, position);
         holder.articleView.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -45,6 +52,30 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
                 startDetailActivity(v, holder);
             }
         });
+    }
+
+    private void fillArticleThumbnail(ViewHolder holder, int position) {
+        ImageView imageViewHolder = holder.articleThumbnail;
+        Context context = imageViewHolder.getContext();
+
+        Picasso.with(context)
+                .load(articleList.get(position).getImageUrl())
+                .into(imageViewHolder);
+
+    }
+
+    private void fillAddedDateField(ViewHolder holder, int position) {
+        String preparedDate;
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yy");
+            Date addedDate = articleList.get(position).getAddedDate();
+            preparedDate = formatter.format(addedDate);
+            holder.articleDateAdded.setText(preparedDate);
+        }catch (NullPointerException exc){
+            holder.articleDateAdded.setText(R.string.added_date_not_set);
+        }
+
+
     }
 
     private void startDetailActivity(View v, ViewHolder holder) {
@@ -62,18 +93,23 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View articleView;
-        public final TextView title;
+        public final TextView articleTitle;
+        public final TextView articleDateAdded;
+        public final ImageView articleThumbnail;
+
         public Article article;
 
         public ViewHolder(View view) {
             super(view);
             articleView = view;
-            title = (TextView) view.findViewById(R.id.article_title);
+            articleTitle = (TextView) view.findViewById(R.id.article_title);
+            articleDateAdded = (TextView) view.findViewById(R.id.article_added);
+            articleThumbnail = (ImageView) view.findViewById(R.id.article_thumbnail);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + title.getText() + "'";
+            return super.toString() + " '" + articleTitle.getText() + "'";
         }
     }
 }
