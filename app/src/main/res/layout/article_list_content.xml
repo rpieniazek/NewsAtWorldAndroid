@@ -3,14 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="250dp"
     android:orientation="vertical"
-    android:layout_margin="10dp"
+    android:layout_margin="2dp"
     android:background="@color/colorPrimary">
 
     <ImageView
         android:id="@+id/article_thumbnail"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/background"/>
+        android:src="@drawable/background"
+        android:scaleType="centerCrop"/>
 
 
     <LinearLayout
