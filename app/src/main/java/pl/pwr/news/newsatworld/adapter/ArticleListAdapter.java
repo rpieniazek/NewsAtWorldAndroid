@@ -16,7 +16,6 @@ import java.util.Date;
 import java.util.List;
 
 import pl.pwr.news.newsatworld.ArticleDetailActivity;
-import pl.pwr.news.newsatworld.ArticleDetailFragment;
 import pl.pwr.news.newsatworld.R;
 import pl.pwr.news.newsatworld.model.Article;
 
@@ -77,7 +76,7 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
     private void startDetailActivity(View v, ViewHolder holder) {
         Context context = v.getContext();
         Intent intent = new Intent(context, ArticleDetailActivity.class);
-        intent.putExtra(ArticleDetailFragment.ARG_ITEM_ID, holder.article);
+        intent.putExtra(ArticleDetailActivity.ARG_ITEM_ID, holder.article);
         context.startActivity(intent);
     }
 
