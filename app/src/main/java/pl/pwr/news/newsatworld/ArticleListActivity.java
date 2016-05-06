@@ -5,16 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pl.pwr.news.newsatworld.adapter.ArticleListAdapter;
@@ -31,7 +30,7 @@ public class ArticleListActivity extends ActionBarActivity implements ArticleLis
 
     private ArticlePresenter presenter;
     private List<Article> articleList;
-    List<Category> categoriesList;
+    ArrayList<Category> categoriesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,10 +56,6 @@ public class ArticleListActivity extends ActionBarActivity implements ArticleLis
         setupRecyclerView((RecyclerView) recyclerView);
     }
 
-    @Override
-    public void setCategoriesList(List<Category> categoriesList) {
-        this.categoriesList = categoriesList;
-    }
 
 
     private void setUpToolbar() {
@@ -85,7 +80,7 @@ public class ArticleListActivity extends ActionBarActivity implements ArticleLis
         int id = item.getItemId();
         if (id == R.id.action_filter) {
 
-            CharSequence categories[] = obtainCategoriesCharSequences();
+            final CharSequence categories[] = obtainCategoriesCharSequences();
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Pick a category");
@@ -93,7 +88,6 @@ public class ArticleListActivity extends ActionBarActivity implements ArticleLis
             builder.setItems(categories, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    // the user clicked on categories [which]
                 }
             });
             builder.show();
@@ -110,7 +104,7 @@ public class ArticleListActivity extends ActionBarActivity implements ArticleLis
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        List<Category> categoriesList = categoryService.getCategoriesList();
+        categoriesList = (ArrayList<Category>) categoryService.getCategoriesList();
         CharSequence results[] = new CharSequence[categoriesList.size()];
         for(int i = 0;i<results.length;i++){
             results[i] = categoriesList.get(i).getName();
