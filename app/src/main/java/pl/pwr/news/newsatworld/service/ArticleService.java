@@ -10,12 +10,13 @@ import retrofit.Retrofit;
 /**
  * Created by Rafal Pieniążek on 2016-04-12.
  */
-public class ArticleService {
+public class ArticleService extends BaseService {
 
     private ArticleRequest request;
 
     public ArticleService() {
-        configureRetrofit();
+        super();
+        request = retrofit.create(ArticleRequest.class);
     }
 
     public void getArticleList(Callback<GetArticleResponse> callback){
@@ -23,14 +24,7 @@ public class ArticleService {
         listCall.enqueue(callback);
     }
 
-    private void configureRetrofit() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://37.187.52.160:9000")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        request = retrofit.create(ArticleRequest.class);
-    }
 
 
 }

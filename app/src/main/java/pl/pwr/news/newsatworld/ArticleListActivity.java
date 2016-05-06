@@ -16,7 +16,9 @@ import pl.pwr.news.newsatworld.presenter.ArticlePresenter;
 import pl.pwr.news.newsatworld.view.ArticleListView;
 
 public class ArticleListActivity extends AppCompatActivity implements ArticleListView {
-    ArticlePresenter presenter;
+
+    public static String USER = "ArticleListActivity.User";
+    private ArticlePresenter presenter;
     private List<Article> articleList;
 
     @Override
