@@ -45,4 +45,6 @@ public class ArticlePresenter implements Callback<GetArticleResponse> {
         articleListView.setArticleList(new ArrayList<Article>());
 
     }
+
+
 }

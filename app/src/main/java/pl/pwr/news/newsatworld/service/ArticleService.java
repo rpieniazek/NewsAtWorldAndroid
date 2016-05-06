@@ -24,7 +24,4 @@ public class ArticleService extends BaseService {
         listCall.enqueue(callback);
     }
 
-
-
-
 }

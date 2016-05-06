@@ -27,4 +27,5 @@
     <string name="login">login</string>
     <string name="register">register</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="logout">Logout</string>
 </resources>
