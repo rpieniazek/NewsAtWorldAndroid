@@ -15,6 +15,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -167,6 +168,7 @@ public class LoginActivity extends AppCompatActivity  implements  Callback<Login
     @Override
     public void onResponse(Response<LoginResponse> response, Retrofit retrofit) {
         showProgress(false);
+        Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
         finish();
 
         Intent intent = new Intent(this, ArticleListActivity.class);
