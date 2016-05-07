@@ -1,13 +1,10 @@
-package pl.pwr.news.newsatworld.view;
+package pl.pwr.news.newsatworld.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -18,7 +15,6 @@ import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import pl.pwr.news.newsatworld.ArticleListActivity;
 import pl.pwr.news.newsatworld.R;
 import pl.pwr.news.newsatworld.request.RegisterRequestBody;
 import pl.pwr.news.newsatworld.response.RegisterResponse;

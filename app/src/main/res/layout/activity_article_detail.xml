@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="pl.pwr.news.newsatworld.ArticleDetailActivity"
+    tools:context=".activity.ArticleDetailActivity"
     tools:ignore="MergeRootFrame">
 
     <android.support.design.widget.AppBarLayout
@@ -51,6 +51,26 @@
             tools:context="pl.pwr.news.newsatworld.ArticleDetailFragment" />
 
     </android.support.v4.widget.NestedScrollView>
+
+
+        <Button
+            android:id="@+id/like"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="like"
+            android:layout_gravity="bottom|left"
+            android:background="@color/green_like"/>
+
+        <Button
+            android:id="@+id/dislike"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="dislike"
+            android:layout_gravity="bottom|right"
+            android:background="@color/red_dislike"/>
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/goto_article"

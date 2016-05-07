@@ -1,4 +1,4 @@
-package pl.pwr.news.newsatworld.view;
+package pl.pwr.news.newsatworld.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import pl.pwr.news.newsatworld.ArticleListActivity;
 import pl.pwr.news.newsatworld.R;
 import pl.pwr.news.newsatworld.response.LoginResponse;
 import pl.pwr.news.newsatworld.service.UserService;

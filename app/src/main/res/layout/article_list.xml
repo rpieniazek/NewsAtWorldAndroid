@@ -9,5 +9,5 @@
     android:layout_marginLeft="6dp"
     android:layout_marginRight="6dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context="pl.pwr.news.newsatworld.ArticleListActivity"
+    tools:context=".activity.ArticleListActivity"
     tools:listitem="@layout/article_list_content" />

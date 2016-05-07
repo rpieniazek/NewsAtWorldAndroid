@@ -1,6 +1,7 @@
 package pl.pwr.news.newsatworld.request;
 
 import pl.pwr.news.newsatworld.response.GetArticleResponse;
+import pl.pwr.news.newsatworld.response.LikeDislikeArticleResponse;
 import retrofit.Call;
 import retrofit.http.GET;
 import retrofit.http.Path;
@@ -19,4 +20,10 @@ public interface ArticleRequest {
 
     @GET("/api/user/favourite")
     Call<GetArticleResponse> listArticlesForUser(@Query("token") String token);
+
+    @GET("/api/article/{articleId}/like")
+    Call<LikeDislikeArticleResponse> likeArticle (@Path("articleId") Long articleId);
+
+    @GET("/api/article/{articleId}/dislike")
+    Call<LikeDislikeArticleResponse> dislikeArticle(@Path("articleId") Long articleId);
 }

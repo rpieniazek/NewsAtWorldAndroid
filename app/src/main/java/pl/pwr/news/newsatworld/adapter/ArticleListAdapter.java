@@ -15,8 +15,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import pl.pwr.news.newsatworld.ArticleDetailActivity;
 import pl.pwr.news.newsatworld.R;
+import pl.pwr.news.newsatworld.activity.ArticleDetailActivity;
 import pl.pwr.news.newsatworld.model.Article;
 
 /**

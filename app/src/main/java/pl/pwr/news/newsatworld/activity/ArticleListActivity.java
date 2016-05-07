@@ -1,4 +1,4 @@
-package pl.pwr.news.newsatworld;
+package pl.pwr.news.newsatworld.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +16,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.pwr.news.newsatworld.R;
 import pl.pwr.news.newsatworld.adapter.ArticleListAdapter;
 import pl.pwr.news.newsatworld.model.Article;
 import pl.pwr.news.newsatworld.model.Category;

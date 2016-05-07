@@ -29,6 +29,10 @@ public class ArticlePresenter implements Callback<GetArticleResponse> {
         this.articleListView = (ArticleListView) context;
     }
 
+    public ArticlePresenter() {
+        articleService = new ArticleService();
+    }
+
     public void getPopularArticleList() {
         articleService.getPopularArticleList(this);
     }
@@ -37,10 +41,16 @@ public class ArticlePresenter implements Callback<GetArticleResponse> {
         articleService.getArticleListByCategory(categoryId,this);
     }
 
-
-
     public void getArticlesForUser(String token) {
         articleService.getArticlesForUser(token,this);
+    }
+
+    public void likeArticle(Long id){
+        articleService.likeArticle(id);
+    }
+
+    public void dislikeArticle(Long id){
+        articleService.dislikeArticle(id);
     }
 
     @Override

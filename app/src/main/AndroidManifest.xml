@@ -17,23 +17,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ArticleListActivity"
+            android:name=".activity.ArticleListActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".ArticleDetailActivity"
+            android:name=".activity.ArticleDetailActivity"
             android:label="@string/title_article_detail"
-            android:parentActivityName=".ArticleListActivity"
+            android:parentActivityName=".activity.ArticleListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="pl.pwr.news.newsatworld.ArticleListActivity" />
+                android:value=".activity.ArticleListActivity" />
         </activity>
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".activity.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
-            android:name=".view.SplashActivity"
+            android:name=".activity.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_splash"
             android:theme="@style/FullscreenTheme">
@@ -44,7 +44,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.RegisterActivity"
+            android:name=".activity.RegisterActivity"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

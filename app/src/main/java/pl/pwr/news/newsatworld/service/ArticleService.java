@@ -1,7 +1,10 @@
 package pl.pwr.news.newsatworld.service;
 
+import java.io.IOException;
+
 import pl.pwr.news.newsatworld.request.ArticleRequest;
 import pl.pwr.news.newsatworld.response.GetArticleResponse;
+import pl.pwr.news.newsatworld.response.LikeDislikeArticleResponse;
 import retrofit.Call;
 import retrofit.Callback;
 
@@ -30,5 +33,24 @@ public class ArticleService extends BaseService {
     public void getArticlesForUser(String token,Callback<GetArticleResponse> callback) {
         Call<GetArticleResponse> listCall = request.listArticlesForUser(token);
         listCall.enqueue(callback);
+    }
+
+    public void likeArticle(Long id) {
+
+        try {
+            Call<LikeDislikeArticleResponse> call = request.likeArticle(id);
+            call.execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void dislikeArticle(Long id) {
+        try {
+            Call<LikeDislikeArticleResponse> call = request.dislikeArticle(id);
+            call.execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
