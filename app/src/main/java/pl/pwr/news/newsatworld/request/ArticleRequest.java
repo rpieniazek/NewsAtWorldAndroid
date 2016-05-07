@@ -17,4 +17,6 @@ public interface ArticleRequest {
     @GET("/api/category/articles/{categoryId}")
     Call<GetArticleResponse> listArticlesByCategory(@Path("categoryId") Long categoryId);
 
+    @GET("/api/user/favourite")
+    Call<GetArticleResponse> listArticlesForUser(@Query("token") String token);
 }

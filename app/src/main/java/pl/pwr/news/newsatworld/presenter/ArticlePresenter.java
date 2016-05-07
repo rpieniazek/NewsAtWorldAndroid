@@ -39,10 +39,15 @@ public class ArticlePresenter implements Callback<GetArticleResponse> {
 
 
 
+    public void getArticlesForUser(String token) {
+        articleService.getArticlesForUser(token,this);
+    }
+
     @Override
     public void onResponse(Response<GetArticleResponse> response, Retrofit retrofit) {
         articleListView.setArticleList(response.body().value);
     }
+
 
     @Override
     public void onFailure(Throwable t) {
@@ -50,6 +55,4 @@ public class ArticlePresenter implements Callback<GetArticleResponse> {
         articleListView.setArticleList(new ArrayList<Article>());
 
     }
-
-
 }

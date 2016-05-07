@@ -38,8 +38,14 @@ public class ArticleListActivity extends ActionBarActivity implements ArticleLis
         setContentView(R.layout.activity_article_list);
 
         presenter = new ArticlePresenter(this);
+    //czekam na api
+        //User user = getUserFromIntent();
+//        if(user != null){
+//            presenter.getArticlesForUser(user.getToken());
+//        }else{
+//            presenter.getPopularArticleList();
+//        }
         presenter.getPopularArticleList();
-        User user = getUserFromIntent();
         setUpToolbar();
     }
 

@@ -27,4 +27,8 @@ public class ArticleService extends BaseService {
         listCall.enqueue(callback);
     }
 
+    public void getArticlesForUser(String token,Callback<GetArticleResponse> callback) {
+        Call<GetArticleResponse> listCall = request.listArticlesForUser(token);
+        listCall.enqueue(callback);
+    }
 }
