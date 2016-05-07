@@ -3,6 +3,7 @@ package pl.pwr.news.newsatworld.request;
 import pl.pwr.news.newsatworld.response.GetArticleResponse;
 import retrofit.Call;
 import retrofit.http.GET;
+import retrofit.http.Path;
 import retrofit.http.Query;
 
 /**
@@ -11,6 +12,9 @@ import retrofit.http.Query;
 public interface ArticleRequest {
 
     @GET("/api/article/popular")
-    Call<GetArticleResponse> listArticles(@Query("pageSize") int pageSize);
+    Call<GetArticleResponse> listPopularArticles(@Query("pageSize") int pageSize);
+
+    @GET("/api/category/articles/{categoryId}")
+    Call<GetArticleResponse> listArticlesByCategory(@Path("categoryId") Long categoryId);
 
 }

@@ -29,9 +29,14 @@ public class ArticlePresenter implements Callback<GetArticleResponse> {
         this.articleListView = (ArticleListView) context;
     }
 
-    public void getArticleList() {
-        articleService.getArticleList(this);
+    public void getPopularArticleList() {
+        articleService.getPopularArticleList(this);
     }
+
+    public void getArticleListByCategory(Long categoryId) {
+        articleService.getArticleListByCategory(categoryId,this);
+    }
+
 
 
     @Override

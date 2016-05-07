@@ -38,7 +38,7 @@ public class ArticleListActivity extends ActionBarActivity implements ArticleLis
         setContentView(R.layout.activity_article_list);
 
         presenter = new ArticlePresenter(this);
-        presenter.getArticleList();
+        presenter.getPopularArticleList();
         User user = getUserFromIntent();
         setUpToolbar();
     }
@@ -88,6 +88,7 @@ public class ArticleListActivity extends ActionBarActivity implements ArticleLis
             builder.setItems(categories, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    presenter.getArticleListByCategory(categoriesList.get(which).getId());
                 }
             });
             builder.show();
